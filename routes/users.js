@@ -33,7 +33,7 @@ router.post(
     // req.body contain name, email, password to post it as sign up data
     const { name, email, password } = req.body
 
-    // dealing with DB is return a promise so we use async await
+    // dealing with DB is return a promise so we use async await or .then.catch
     try {
       // bring the model (User) here
       // find user by email because email is unique
@@ -58,7 +58,6 @@ router.post(
       /**
        * create auto-login after register using JWT
        */
-
       const payload = {
         user: {
           id: user.id,
